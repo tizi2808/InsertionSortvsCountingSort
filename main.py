@@ -14,9 +14,10 @@ def CountingSort(arr):
         counts[arr[i]] += 1
     for i in range(1, max_val+1):
         counts[i] = counts[i] + counts[i-1]
-    for j in range(len(arr)-1, 0, -1):
-        sorted[counts[arr[j]]-1] = arr[j]
-        counts[arr[j]] -= 1
+    for key in arr[::-1]:
+        sorted[counts[key]-1] = key
+        counts[key] -= 1
+    return sorted
     
     
 
